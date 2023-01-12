@@ -30,6 +30,8 @@ jobs:
       run: 'gcloud info'
 
     - name: 'Show Token'
-      run: cat credentials.json
+      run: |
+        ls
+        cat *.json
 
 
