@@ -112,8 +112,7 @@ def main():
     #         token.write(creds.to_json())
     
     credFileName = glob.glob("*.json")[0]
-    flow = service_account.Credentials.from_service_account_file(
-        credFileName, SCOPES)
+    flow = service_account.Credentials.from_service_account_file(credFileName, scopes=SCOPES)
     creds = flow.run_local_server(port=0)
 
     try:
