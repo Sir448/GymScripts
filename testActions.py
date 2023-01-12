@@ -1,5 +1,6 @@
 from __future__ import print_function
 
+import glob
 import os.path
 
 from google.auth.transport.requests import Request
@@ -101,8 +102,9 @@ def main():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
+            credFileName = glob.glob("*.json")[0]
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                credFileName, SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
