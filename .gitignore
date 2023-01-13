@@ -1,2 +1,5 @@
 *.json
 .env
+*test*
+
+!increments.json

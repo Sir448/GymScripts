@@ -1,12 +1,11 @@
 from __future__ import print_function
 
-import glob
-import os.path
-
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+import glob
+import json
 import time
 months = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"]
 
@@ -86,31 +85,9 @@ def createCell(val: str) -> dict:
 
 
 def main():
-    """Shows basic usage of the Sheets API.
-    Prints values from a sample spreadsheet.
-    """
-    # creds = None
-    # # The file token.json stores the user's access and refresh tokens, and is
-    # # created automatically when the authorization flow completes for the first
-    # # time.
-    # if os.path.exists('token.json'):
-    #     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # # If there are no (valid) credentials available, let the user log in.
-    # if not creds or not creds.valid:
-    #     if creds and creds.expired and creds.refresh_token:
-    #         creds.refresh(Request())
-    #     else:
-    #         credFileName = glob.glob("*.json")[0]
-    #         flow = service_account.Credentials.from_service_account_file(
-    #             credFileName, SCOPES)
-    #         creds = flow.run_local_server(port=0)
-    #     # Save the credentials for the next run
-    #     with open('token.json', 'w') as token:
-    #         token.write(creds.to_json())
     
     credFileName = glob.glob("*.json")[0]
     creds = service_account.Credentials.from_service_account_file(credFileName, scopes=SCOPES)
-    # creds = flow.run_local_server(port=0)
 
     try:
         service = build('sheets', 'v4', credentials=creds)
@@ -120,11 +97,7 @@ def main():
         sheet_metadata = spreadsheet.get(spreadsheetId=SPREADSHEET_ID).execute()
         sheets = sheet_metadata.get('sheets', '')
         # Id of the previous week's sheet
-        title = sheets[-1].get("properties", {}).get("title", 'fail')
-        
-        print(title)
-        
-        quit()
+        sheet_id = sheets[-1].get("properties", {}).get("sheetId", 0)
         
         
         # Creating the new blanksheet
@@ -212,107 +185,41 @@ def main():
         
         # Reading the values of the old sheet (to see what to increment)
         
-        dataRange = name + '!F6:I33'
+        dataRange = name + '!D2:I33'
+        
         
         result = spreadsheet.values().get(spreadsheetId=SPREADSHEET_ID,
                                     range=dataRange).execute()
         values = result.get('values', [])
         
-        upperValues = []
+        new = {}
         
+        # Load increment values
         
-        # Processing leg day (only once a week/sheet)
-        for i in range(13,18):
-            if len(values[i]) == 4 and values[i][3] == "1":
-                if values[i][0] == "8":
-                    values[i][0] = "12"
-                elif i in {13,15}:
-                    values[i][0] = "8"
-                    values[i][1] = str(int(values[i][1]) + 10)
-                else:
-                    values[i][0] = "8"
-                    values[i][1] = str(int(values[i][1]) + 5)
-            elif len(values[i]) == 4 and values[i][3] == "-1":
-                if values[i][0] == "12":
-                    values[i][0] = "8"
-                elif i in {13,15}:
-                    values[i][0] = "12"
-                    values[i][1] = str(int(values[i][1]) - 10)
-                else:
-                    values[i][0] = "12"
-                    values[i][1] = str(int(values[i][1]) - 5)
-                    
-            del values[i][2:]
+        with open("increments.json", 'r') as f:
+            increments = json.load(f)
+        
+        # Set new reps and weights in dictionary
+        
+        for row in values[::-1]:
+            if len(row) == 0: continue
             
-        # Processing chest and arms day (biweekly)
-        for i in range(18,28):
+            exerciseName = row[0].strip()
             
-            if i == 22:
-                upperValues.append([])
-                continue
-            if len(values[i]) == 4 and values[i][3] == "1":
-                
-                if values[i][0] == "8":
-                    newRep = "12"
-                    newWeight = values[i][1]
-                elif i == 26:
-                    newRep = "8"
-                    newWeight = str(int(values[i][1]) + 10)
-                else:
-                    newRep = "8"
-                    newWeight = str(int(values[i][1]) + 5)
-                    
-                values[i][0] = newRep
-                values[i][1] = newWeight
-                
-                
-                if i != 19:
-                    upperValues.append([newRep,newWeight])
-                    
-            elif len(values[i]) == 4 and values[i][3] == "-1":
-                
-                if values[i][0] == "12":
-                    newRep = "8"
-                    newWeight = values[i][1]
-                elif i == 26:
-                    newRep = "12"
-                    newWeight = str(int(values[i][1]) - 10)
-                else:
-                    newRep = "12"
-                    newWeight = str(int(values[i][1]) - 5)
-                    
-                values[i][0] = newRep
-                values[i][1] = newWeight
-                
-                
-                if i != 19:
-                    upperValues.append([newRep,newWeight])
-                    
-            elif i != 19:
-                upperValues.append([values[i][0],values[i][1]])
-                 
-            if i == 19:   
-                # processing pec dec fly
-                if len(values[0]) == 4 and values[0][3] == "1":
-                    if values[0][0] == "8":
-                        upperValues.append(["12",values[0][1]])
-                    else:
-                        upperValues.append(["8",str(int(values[0][1]) + 5)])
-                elif len(values[0]) == 4 and values[0][3] == "-1":
-                    if values[0][0] == "12":
-                        upperValues.append(["8",values[0][1]])
-                    else:
-                        upperValues.append(["12",str(int(values[0][1]) - 5)])
-                else:
-                    upperValues.append([values[0][0],values[0][1]])
-                    
-                    
-            # print(i,upperValues)  
-            del values[i][2:]
+            if exerciseName in new or exerciseName == 'Max Incline walk': continue
             
-        del values[:13] 
+            reps = int(row[2])
+            weight = int(row[3])
+            goNext = len(row) > 5
             
-        # Incrementing new values
+            if goNext and reps == 8:
+                new[exerciseName] = ("12", str(weight))
+            elif goNext:
+                new[exerciseName] = ("8", str(weight + increments[exerciseName]))
+            else:
+                new[exerciseName] = (str(reps), str(weight))
+                
+        # Updating sheet
         
         body = {
             'requests': [
@@ -323,19 +230,7 @@ def main():
                         'fields':'*',
                         'start':{
                             'sheet_id':new_sheet_id,
-                            'rowIndex': 18,
-                            'columnIndex': 5
-                        }
-                    },
-                },
-                {
-                    'updateCells':{
-                        'rows':[
-                        ],
-                        'fields':'*',
-                        'start':{
-                            'sheet_id':new_sheet_id,
-                            'rowIndex': 4,
+                            'rowIndex': 1,
                             'columnIndex': 5
                         }
                     },
@@ -343,13 +238,14 @@ def main():
             ]
         }
         
-        for i in values:
-            if len(i) > 0:
+        for row in values:
+            if len(row) > 0 and row[0].strip() != 'Max Incline walk':
+                exerciseName = row[0].strip()
                 body['requests'][0]['updateCells']['rows'].append(
                     {
                         'values':[
-                            createBorderedCell(i[0]),
-                            createBorderedCell(i[1]),
+                            createBorderedCell(new[exerciseName][0]),
+                            createBorderedCell(new[exerciseName][1]),
                             createCell(''),
                             createCell(''),
                         ]
@@ -358,20 +254,6 @@ def main():
             else:
                 body['requests'][0]['updateCells']['rows'].append({})
                 
-        for i in upperValues:
-            if len(i) > 0:
-                body['requests'][1]['updateCells']['rows'].append(
-                    {
-                        'values':[
-                            createBorderedCell(i[0]),
-                            createBorderedCell(i[1]),
-                            createCell(''),
-                            createCell(''),
-                        ]
-                    }
-                )
-            else:
-                body['requests'][1]['updateCells']['rows'].append({})
                 
         request = spreadsheet.batchUpdate(
             spreadsheetId=SPREADSHEET_ID, body=body)
@@ -382,3 +264,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
