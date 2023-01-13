@@ -1,8 +1,14 @@
-name: "Create New Sheet"
+name: "Run Gym Scripts"
 
 # Creates a new sheet at the beginning of the week
 
-on: [push,workflow_dispatch]
+on: 
+  workflow_dispatch: {}
+  schedule:
+    # Create sheet weekly on Monday at 2:00AM
+    - cron: '0 2 * * 1'
+    # Update sheet weekly on Saturday at 2:00AM
+    - cron: '0 2 * * 6'
 
 permissions:
   contents: 'read'
@@ -20,7 +26,7 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         token_format: 'access_token'
-        # access_token_lifetime: '300s'
+        access_token_lifetime: '300s'
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
     - name: 'Set up Cloud SDK'
@@ -39,9 +45,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
-    # - name: Show token name
-    #   run: ls *.json
-    - name: Run Script
-      run: python testActions.py
+    - name: Create New Sheet
+      if: github.event.schedule == '0 2 * * 1'
+      run: python createNewSheetForActions.py
+
+    - name: Update Sheet
+      if: github.event.schedule == '0 2 * * 6'
+      run: python updateSheetForActions.py
 
 
