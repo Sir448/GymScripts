@@ -86,7 +86,7 @@ def createCell(val: str) -> dict:
 
 def main():
     
-    credFileName = glob.glob("*.json")[0]
+    credFileName = glob.glob("gha-creds-*.json")[0]
     creds = service_account.Credentials.from_service_account_file(credFileName, scopes=SCOPES)
 
     try:
