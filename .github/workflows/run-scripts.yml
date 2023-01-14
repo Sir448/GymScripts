@@ -30,9 +30,6 @@ jobs:
         access_token_lifetime: '300s'
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-    - name: Show token contents
-      run: ls *.json
-
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
 
