@@ -22,12 +22,16 @@ jobs:
     - name: 'Checkout'
       uses: 'actions/checkout@v3'
 
-    - id: 'auth'
+    - name: Authenticate
+      id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
         token_format: 'access_token'
         access_token_lifetime: '300s'
         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+    - name: Show token contents
+      run: cat *.json
 
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
