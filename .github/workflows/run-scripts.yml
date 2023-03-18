@@ -58,4 +58,7 @@ jobs:
       if: github.event_name == 'workflow_dispatch'
       run: python testActions.py
 
+    - name: Keep Workflow Alive
+      uses: gautamkrishnar/keepalive-workflow@v1
+
 
