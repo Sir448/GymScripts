@@ -54,17 +54,16 @@ jobs:
       if: github.event.schedule == '0 2 * * 6'
       run: python updateSheetForActions.py
 
-    # - name: Test Action
-    #   if: github.event_name == 'workflow_dispatch'
-    #   run: python testActions.py
+    - name: Test Action
+      if: github.event_name == 'workflow_dispatch'
+      run: python testActions.py
 
     - name: Keep Workflow Alive
-      if: github.event_name == 'workflow_dispatch'
-      # if: github.event.schedule == '0 2 * * 1'
+      if: github.event.schedule == '0 2 * * 1'
       run: |
         git config user.name "Keep Workflow Alive"
         git config user.email "<>"
-        git commit --allow-empty -m "Keep Workflow Alive"
+        git commit --allow-empty -m "Dummy Commit"
         git push
 
 
