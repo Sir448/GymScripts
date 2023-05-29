@@ -1,17 +1,20 @@
 {
-    "Flat Dumbell Press": 5,
+    "Flat Dumbbell Press": 5,
     "Pec Dec Fly": 5,
     "Chest Supported Row": 5,
     "Low Row Machine": 5,
     "Preacher Curls": 5,
+    "Dumbbell Curl": 5,
     "Incline Curls": 5,
     "Pulldown Variations": 5,
     "Skullcrushers": 10,
-    "Lateral Raises": 5,
+    "Lateral Raises": 2.5,
     "Leg Extension": 5,
     "Bulgarian Split Squats": 5,
     "Laying Hamstring Curls": 5,
     "Standing Calf Raises": 5,
-    "Incline Dumbell Press": 5,
-    "Tricep Extensions": 5
+    "Incline Dumbbell Press": 5,
+    "Tricep Extensions": 5,
+    "Bench Press": 10,
+    "Lat Pulldown": 10
 }

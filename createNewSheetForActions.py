@@ -144,15 +144,18 @@ def main():
             if exerciseName in new or exerciseName == 'Max Incline walk': continue
             
             reps = int(row[2])
-            weight = int(row[3])
+            weight = float(row[3])
             goNext = len(row) > 5
             
             if goNext and reps == 8:
-                new[exerciseName] = ("12", str(weight))
+                new[exerciseName] = ("12", row[3])
             elif goNext:
-                new[exerciseName] = ("8", str(weight + increments[exerciseName]))
+                newWeight = weight + increments[exerciseName]
+                if newWeight%1 == 0:
+                    newWeight = int(newWeight)
+                new[exerciseName] = ("8", str(newWeight))
             else:
-                new[exerciseName] = (str(reps), str(weight))
+                new[exerciseName] = (str(reps), row[3])
                 
         # Updating sheet
         
