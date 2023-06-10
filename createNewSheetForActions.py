@@ -19,6 +19,8 @@ SPREADSHEET_ID = '1_DNoLWQX8jXvogVROqdu6oQSneYQy5HdavRBskHO_Os' #gym spreadsheet
 # SPREADSHEET_ID = '1x2dVAd5YS8ifgIN9eV_kXcwRX7eXNQ1OfFiDmq5v6dg' #gym spreadsheet 1
 # SPREADSHEET_ID = '13FkI3lmfiWU0oQt6uvEyXLAIw6s3RiWroA7fQOt98qI' #copy of gym spreadsheet
 
+# For starting new spreadsheet
+OFFSET = 50
 
 def main():
     
@@ -40,7 +42,7 @@ def main():
         
         today = time.localtime()
         # Name of the new sheet
-        name = f'week {len(sheets) + 1} - {months[today.tm_mon-1]} {today.tm_mday}, {today.tm_year}'
+        name = f'week {OFFSET + len(sheets) + 1} - {months[today.tm_mon-1]} {today.tm_mday}, {today.tm_year}'
         
         body = {
             'requests': [
