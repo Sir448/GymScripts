@@ -73,7 +73,7 @@ def main():
         for row in values:
             if len(row) == 0: continue
             
-            exerciseName = row[0].strip()
+            exerciseName = row[0].strip().title()
             
             if exerciseName in new or exerciseName == 'Max Incline walk': continue
             
@@ -84,7 +84,7 @@ def main():
             if goNext and reps == 8:
                 new[exerciseName] = ("12", str(weight))
             elif goNext:
-                new[exerciseName] = ("8", str(weight + increments[exerciseName]))
+                new[exerciseName] = ("8", str(weight + increments.get(exerciseName,5)))
             else:
                 new[exerciseName] = (str(reps), str(weight))
                 
