@@ -144,7 +144,7 @@ def main():
             
             exerciseName = row[0].strip().title()
             
-            if exerciseName in new or exerciseName == 'Max Incline walk': continue
+            if exerciseName in new or exerciseName == 'Max Incline Walk': continue
             
             reps = int(row[2])
             weight = float(row[3])
