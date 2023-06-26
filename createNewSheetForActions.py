@@ -181,7 +181,7 @@ def main():
         
         for row in values:
             if len(row) > 0 and row[0].strip() != 'Max Incline walk':
-                exerciseName = row[0].strip()
+                exerciseName = row[0].strip().title()
                 body['requests'][0]['updateCells']['rows'].append(
                     {
                         'values':[

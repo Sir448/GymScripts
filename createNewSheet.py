@@ -167,15 +167,18 @@ def main():
             if exerciseName in new or exerciseName == 'Max Incline Walk': continue
             
             reps = int(row[2])
-            weight = int(row[3])
+            weight = float(row[3])
             goNext = len(row) > 5
             
             if goNext and reps == 8:
                 new[exerciseName] = ("12", str(weight))
             elif goNext:
-                new[exerciseName] = ("8", str(weight + increments.get(exerciseName,5)))
+                newWeight = weight + increments.get(exerciseName,5)
+                if newWeight%1 == 0:
+                    newWeight = int(newWeight)
+                new[exerciseName] = ("8", str(newWeight))
             else:
-                new[exerciseName] = (str(reps), str(weight))
+                new[exerciseName] = (str(reps), row[3])
                 
         # Updating sheet
         
@@ -198,7 +201,7 @@ def main():
         
         for row in values:
             if len(row) > 0 and row[0].strip() != 'Max Incline walk':
-                exerciseName = row[0].strip()
+                exerciseName = row[0].strip().title()
                 body['requests'][0]['updateCells']['rows'].append(
                     {
                         'values':[
