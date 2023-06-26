@@ -55,7 +55,7 @@ def main():
         
         # Reading the values of the current sheet (to see what to increment)
         
-        dataRange = title + '!D2:I33'
+        dataRange = title + '!D2:I37'
         
         result = spreadsheet.values().get(spreadsheetId=SPREADSHEET_ID,
                                     range=dataRange).execute()

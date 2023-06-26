@@ -91,14 +91,14 @@ def main():
                         'source':{
                             'sheet_id':sheet_id,
                             'startRowIndex': 0,
-                            'endRowIndex': 33,
+                            'endRowIndex': 37,
                             'startColumnIndex': 0,
                             'endColumnIndex': 9,
                         },
                         'destination':{
                             'sheet_id':new_sheet_id,
                             'startRowIndex': 0,
-                            'endRowIndex': 33,
+                            'endRowIndex': 37,
                             'startColumnIndex': 0,
                             'endColumnIndex': 9,
                         }
@@ -143,7 +143,7 @@ def main():
         
         # Reading the values of the old sheet (to see what to increment)
         
-        dataRange = name + '!D2:I33'
+        dataRange = name + '!D2:I37'
         
         
         result = spreadsheet.values().get(spreadsheetId=SPREADSHEET_ID,
@@ -171,7 +171,7 @@ def main():
             goNext = len(row) > 5
             
             if goNext and reps == 8:
-                new[exerciseName] = ("12", str(weight))
+                new[exerciseName] = ("12", row[3])
             elif goNext:
                 newWeight = weight + increments.get(exerciseName,5)
                 if newWeight%1 == 0:

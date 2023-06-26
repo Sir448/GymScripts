@@ -71,14 +71,14 @@ def main():
                         'source':{
                             'sheet_id':sheet_id,
                             'startRowIndex': 0,
-                            'endRowIndex': 33,
+                            'endRowIndex': 37,
                             'startColumnIndex': 0,
                             'endColumnIndex': 9,
                         },
                         'destination':{
                             'sheet_id':new_sheet_id,
                             'startRowIndex': 0,
-                            'endRowIndex': 33,
+                            'endRowIndex': 37,
                             'startColumnIndex': 0,
                             'endColumnIndex': 9,
                         }
@@ -123,7 +123,7 @@ def main():
         
         # Reading the values of the old sheet (to see what to increment)
         
-        dataRange = name + '!D2:I33'
+        dataRange = name + '!D2:I37'
         
         
         result = spreadsheet.values().get(spreadsheetId=SPREADSHEET_ID,
