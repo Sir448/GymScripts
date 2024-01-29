@@ -48,11 +48,23 @@ jobs:
 
     - name: Create New Sheet
       if: github.event.schedule == '0 2 * * 1'
-      run: python createNewSheetForActions.py
+      run: | 
+        python createNewSheetForActions.py
+        git config user.name "Create New Sheet"
+        git config user.email "<>"
+        git add increments.json
+        git commit -m "Update Reps and Weights"
+        git push
 
     - name: Update Sheet
       if: github.event.schedule == '0 2 * * 6'
-      run: python updateSheetForActions.py
+      run: |
+        python updateSheetForActions.py
+        git config user.name "Update Sheet"
+        git config user.email "<>"
+        git add increments.json
+        git commit -m "Update Reps and Weights"
+        git push
 
     - name: Test Action
       if: github.event_name == 'workflow_dispatch'
