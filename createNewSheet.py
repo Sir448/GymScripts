@@ -142,19 +142,46 @@ def createNewSheet(creds):
             ]
         }
         
-        for row in values:
+        for i,row in enumerate(values):
             if len(row) > 0 and row[0].strip() != 'Max Incline walk':
                 exerciseName = row[0].strip().title()
+                alternate = None
+                if len(new[exerciseName]) == 3:
+                    alternate = new[exerciseName][2]
+                reps, weight = new[alternate if alternate else exerciseName]
                 body['requests'][0]['updateCells']['rows'].append(
                     {
                         'values':[
-                            createBorderedCell(new[exerciseName][0]),
-                            createBorderedCell(new[exerciseName][1]),
+                            createBorderedCell(reps),
+                            createBorderedCell(weight),
                             createCell(''),
                             createCell(''),
                         ]
                     }
                 )
+
+                # For alternating between exercises between weeks
+                if alternate:
+                    body['requests'].append(
+                        {
+                            'updateCells':{
+                                'rows':[
+                                    {
+                                        'values':[
+                                            createBorderedCell(alternate),
+                                        ]
+                                    }
+                                ],
+                                'fields':'*',
+                                'start':{
+                                    'sheet_id':new_sheet_id,
+                                    'rowIndex': 1+i,
+                                    'columnIndex': 3
+                                }
+                            },
+                        }
+                    )
+
             else:
                 body['requests'][0]['updateCells']['rows'].append({})
                 
