@@ -1,45 +1,17 @@
 from __future__ import print_function
 
-import os.path
-import json
-
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 from createCells import createBorderedCell
-
-# If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+from increment import increment
 
 # The ID and range of a sample spreadsheet.
 SPREADSHEET_ID = '1_DNoLWQX8jXvogVROqdu6oQSneYQy5HdavRBskHO_Os' #gym spreadsheet 2
 # SPREADSHEET_ID = '1x2dVAd5YS8ifgIN9eV_kXcwRX7eXNQ1OfFiDmq5v6dg' #gym spreadsheet 1
 # SPREADSHEET_ID = '13FkI3lmfiWU0oQt6uvEyXLAIw6s3RiWroA7fQOt98qI' #copy of gym spreadsheet
 
-def main():
-    """Shows basic usage of the Sheets API.
-    Prints values from a sample spreadsheet.
-    """
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
+def updateSheet(creds):
 
     try:
         service = build('sheets', 'v4', credentials=creds)
@@ -61,35 +33,7 @@ def main():
                                     range=dataRange).execute()
         values = result.get('values', [])
         
-        new = {}
-        
-        # Load increment values
-        
-        with open("increments.json", 'r') as f:
-            increments = json.load(f)
-        
-        # Set new reps and weights in dictionary
-        
-        for row in values:
-            if len(row) == 0: continue
-            
-            exerciseName = row[0].strip().title()
-            
-            if exerciseName in new or exerciseName == 'Max Incline Walk': continue
-            
-            reps = int(row[2])
-            weight = float(row[3])
-            goNext = len(row) > 5
-            
-            if goNext and reps == 8:
-                new[exerciseName] = ("12", row[3])
-            elif goNext:
-                newWeight = weight + increments.get(exerciseName,5)
-                if newWeight%1 == 0:
-                    newWeight = int(newWeight)
-                new[exerciseName] = ("8", str(newWeight))
-            else:
-                new[exerciseName] = (str(reps), row[3])
+        new = increment(values, True)
                 
         # Incrementing the values
         
@@ -135,7 +79,3 @@ def main():
         response = request.execute()
     except HttpError as err:
         print(err)
-
-
-if __name__ == '__main__':
-    main()
