@@ -42,6 +42,6 @@ def increment(values, update=False):
             new[alternate] = (str(increments[alternate]["currentReps"]),str(increments[alternate]["currentWeight"]))
 
     with open(INCREMENTS_FILE, 'w') as f:
-        json.dump(increments, f)
+        json.dump(increments, f, indent=4)
 
     return new
