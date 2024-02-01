@@ -68,7 +68,13 @@ jobs:
 
     - name: Test Action
       if: github.event_name == 'workflow_dispatch'
-      run: python testActions.py
+      run: | 
+        python createNewSheetForActions.py
+        git config user.name "Create New Sheet"
+        git config user.email "<>"
+        git add increments.json
+        git commit -m "Update Reps and Weights"
+        git push
 
     # - name: Keep Workflow Alive
     #   if: github.event.schedule == '0 2 * * 1'
