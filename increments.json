@@ -14,7 +14,7 @@
     "Chest Supported Row": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 110
     },
     "Low Row Machine": {
@@ -26,8 +26,8 @@
     "Preacher Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 95
+        "currentReps": 8,
+        "currentWeight": 100
     },
     "Dumbbell Curl": {
         "increment": 5,
@@ -56,7 +56,7 @@
     "Lateral Raises": {
         "increment": 2.5,
         "maxReps": 12,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 80.0
     },
     "Leg Extension": {
@@ -105,13 +105,13 @@
     "Lat Pulldown": {
         "increment": 10,
         "maxReps": 10,
-        "currentReps": 20,
+        "currentReps": 22,
         "currentWeight": 110.0
     },
     "Seated Calf Raises": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 110.0,
         "alternate": "Standing Calf Raises"
     },
@@ -136,13 +136,13 @@
     "Cable Tricep Extension": {
         "increment": 10,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 50
     },
     "Chest Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 135
+        "currentReps": 8,
+        "currentWeight": 140
     }
 }
