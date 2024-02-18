@@ -22,11 +22,12 @@ def increment(values, update=False):
         reps = int(row[2])
         weight = float(row[3])
         goNext = len(row) > 5
+        goUpWeight = goNext and row[4] == "2"
         
-        if goNext and reps < increments.get(exerciseName,{"maxReps":10})["maxReps"]:
+        if goNext and reps < increments.get(exerciseName,{"maxReps":10})["maxReps"] and not goUpWeight:
             new[exerciseName] = (str(reps+2), row[3])
             increments[exerciseName]["currentReps"] += 2
-        elif goNext:
+        elif goNext or goUpWeight:
             newWeight = weight + increments.get(exerciseName,{"increment":5})["increment"]
             if newWeight%1 == 0:
                 newWeight = int(newWeight)
