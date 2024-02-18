@@ -3,7 +3,7 @@
         "increment": 5,
         "maxReps": 10,
         "currentReps": 12,
-        "currentWeight": 60.0
+        "currentWeight": 60
     },
     "Pec Dec Fly": {
         "increment": 5,
@@ -21,7 +21,7 @@
         "increment": 7.5,
         "maxReps": 10,
         "currentReps": 10,
-        "currentWeight": 60.0
+        "currentWeight": 60
     },
     "Preacher Curls": {
         "increment": 5,
@@ -45,7 +45,7 @@
         "increment": 10,
         "maxReps": 10,
         "currentReps": 10,
-        "currentWeight": 50.0
+        "currentWeight": 50
     },
     "Skullcrushers": {
         "increment": 10,
@@ -57,7 +57,7 @@
         "increment": 2.5,
         "maxReps": 12,
         "currentReps": 12,
-        "currentWeight": 80.0
+        "currentWeight": 80
     },
     "Leg Extension": {
         "increment": 5,
@@ -69,7 +69,7 @@
         "increment": 5,
         "maxReps": 10,
         "currentReps": 12,
-        "currentWeight": 40.0
+        "currentWeight": 40
     },
     "Laying Hamstring Curls": {
         "increment": 5,
@@ -78,7 +78,7 @@
         "currentWeight": 80
     },
     "Standing Calf Raises": {
-        "increment": 5,
+        "increment": 15,
         "maxReps": 12,
         "currentReps": 8,
         "currentWeight": 200,
@@ -106,13 +106,13 @@
         "increment": 10,
         "maxReps": 10,
         "currentReps": 22,
-        "currentWeight": 110.0
+        "currentWeight": 110
     },
     "Seated Calf Raises": {
         "increment": 5,
         "maxReps": 10,
         "currentReps": 12,
-        "currentWeight": 110.0,
+        "currentWeight": 110,
         "alternate": "Standing Calf Raises"
     },
     "Seated Hamstring Curls": {
@@ -125,7 +125,7 @@
         "increment": 2.5,
         "maxReps": 10,
         "currentReps": 10,
-        "currentWeight": 25.0
+        "currentWeight": 25
     },
     "Reverse Wrist Curls": {
         "increment": 2.5,
@@ -134,7 +134,7 @@
         "currentWeight": 12.5
     },
     "Cable Tricep Extension": {
-        "increment": 10,
+        "increment": 5,
         "maxReps": 10,
         "currentReps": 10,
         "currentWeight": 50
@@ -144,5 +144,11 @@
         "maxReps": 10,
         "currentReps": 8,
         "currentWeight": 140
+    },
+    "Shoulder Press": {
+        "increment": 5,
+        "maxReps": 10,
+        "currentReps": 8,
+        "currentWeight": 80
     }
 }
