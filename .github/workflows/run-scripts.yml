@@ -5,10 +5,10 @@ name: "Run Gym Scripts"
 on: 
   workflow_dispatch: {}
   schedule:
-    # Create sheet weekly on Monday at 2:00AM
-    - cron: '0 2 * * 1'
-    # Update sheet weekly on Saturday at 2:00AM
-    - cron: '0 2 * * 6'
+    # Create sheet weekly 10:00PM MST Monday, 12:00AM EST Tuesday, 5:00AM UTC Tuesday
+    - cron: '0 5 * * 2'
+    # Create sheet weekly 10:00PM MST Saturday, 12:00AM EST Sunday, 5:00AM UTC Sunday
+    - cron: '0 5 * * 7'
 
 permissions:
   contents: 'write'
