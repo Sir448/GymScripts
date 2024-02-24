@@ -2,8 +2,8 @@
     "Flat Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 60
+        "currentReps": 8,
+        "currentWeight": 65
     },
     "Pec Dec Fly": {
         "increment": 5,
@@ -14,7 +14,7 @@
     "Chest Supported Row": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 120
     },
     "Low Row Machine": {
@@ -87,8 +87,8 @@
     "Incline Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 45
+        "currentReps": 8,
+        "currentWeight": 50
     },
     "Tricep Extensions": {
         "increment": 5,
