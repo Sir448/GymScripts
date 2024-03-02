@@ -2,7 +2,7 @@
     "Flat Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 65
     },
     "Pec Dec Fly": {
