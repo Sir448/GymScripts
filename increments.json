@@ -2,13 +2,13 @@
     "Flat Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 65
     },
     "Pec Dec Fly": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 145
     },
     "Chest Supported Row": {
@@ -26,7 +26,7 @@
     "Preacher Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 105
     },
     "Dumbbell Curl": {
