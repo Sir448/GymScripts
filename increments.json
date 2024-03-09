@@ -26,8 +26,8 @@
     "Preacher Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 105
+        "currentReps": 8,
+        "currentWeight": 110
     },
     "Dumbbell Curl": {
         "increment": 5,
