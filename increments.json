@@ -20,8 +20,8 @@
     "Low Row Machine": {
         "increment": 7.5,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 60
+        "currentReps": 8,
+        "currentWeight": 67.5
     },
     "Preacher Curls": {
         "increment": 5,
@@ -142,8 +142,8 @@
     "Chest Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 140
+        "currentReps": 8,
+        "currentWeight": 145
     },
     "Shoulder Press": {
         "increment": 5,
