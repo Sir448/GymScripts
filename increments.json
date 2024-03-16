@@ -14,8 +14,8 @@
     "Chest Supported Row": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 120
+        "currentReps": 8,
+        "currentWeight": 125
     },
     "Low Row Machine": {
         "increment": 7.5,
@@ -26,7 +26,7 @@
     "Preacher Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 110
     },
     "Dumbbell Curl": {
@@ -62,14 +62,14 @@
     "Leg Extension": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 155
+        "currentReps": 8,
+        "currentWeight": 160
     },
     "Bulgarian Split Squats": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 40
+        "currentReps": 8,
+        "currentWeight": 45
     },
     "Laying Hamstring Curls": {
         "increment": 5,
@@ -80,14 +80,14 @@
     "Standing Calf Raises": {
         "increment": 15,
         "maxReps": 12,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 210,
         "alternate": "Seated Calf Raises"
     },
     "Incline Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 50
     },
     "Tricep Extensions": {
@@ -118,8 +118,8 @@
     "Seated Hamstring Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 100
+        "currentReps": 8,
+        "currentWeight": 105
     },
     "Wrist Curls": {
         "increment": 2.5,
