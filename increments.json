@@ -80,14 +80,14 @@
     "Standing Calf Raises": {
         "increment": 15,
         "maxReps": 12,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 210,
         "alternate": "Seated Calf Raises"
     },
     "Incline Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 50
     },
     "Tricep Extensions": {
