@@ -14,7 +14,7 @@
     "Chest Supported Row": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 125
     },
     "Low Row Machine": {
@@ -105,7 +105,7 @@
     "Lat Pulldown": {
         "increment": 10,
         "maxReps": 10,
-        "currentReps": 22,
+        "currentReps": 24,
         "currentWeight": 110
     },
     "Seated Calf Raises": {
