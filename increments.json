@@ -2,8 +2,8 @@
     "Flat Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 65
+        "currentReps": 8,
+        "currentWeight": 70
     },
     "Pec Dec Fly": {
         "increment": 5,
@@ -62,7 +62,7 @@
     "Leg Extension": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 160
     },
     "Bulgarian Split Squats": {
@@ -80,8 +80,8 @@
     "Standing Calf Raises": {
         "increment": 15,
         "maxReps": 12,
-        "currentReps": 12,
-        "currentWeight": 210,
+        "currentReps": 8,
+        "currentWeight": 225,
         "alternate": "Seated Calf Raises"
     },
     "Incline Dumbbell Press": {
@@ -118,7 +118,7 @@
     "Seated Hamstring Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 105
     },
     "Wrist Curls": {
