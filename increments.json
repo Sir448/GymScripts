@@ -62,7 +62,7 @@
     "Leg Extension": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 160
     },
     "Bulgarian Split Squats": {
@@ -118,7 +118,7 @@
     "Seated Hamstring Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 105
     },
     "Wrist Curls": {
@@ -143,7 +143,7 @@
         "increment": 5,
         "maxReps": 10,
         "currentReps": 8,
-        "currentWeight": 145
+        "currentWeight": 150
     },
     "Shoulder Press": {
         "increment": 5,
