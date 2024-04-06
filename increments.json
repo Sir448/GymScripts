@@ -26,8 +26,8 @@
     "Preacher Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 110
+        "currentReps": 8,
+        "currentWeight": 115
     },
     "Dumbbell Curl": {
         "increment": 5,
@@ -44,8 +44,8 @@
     "Pulldown Variations": {
         "increment": 10,
         "maxReps": 10,
-        "currentReps": 10,
-        "currentWeight": 50
+        "currentReps": 8,
+        "currentWeight": 60
     },
     "Skullcrushers": {
         "increment": 10,
@@ -136,7 +136,7 @@
     "Cable Tricep Extension": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 8,
         "currentWeight": 50
     },
     "Chest Press": {
@@ -148,7 +148,7 @@
     "Shoulder Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 80
     }
 }
