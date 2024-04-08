@@ -142,13 +142,13 @@
     "Chest Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 8,
+        "currentReps": 10,
         "currentWeight": 150
     },
     "Shoulder Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 10,
+        "currentReps": 12,
         "currentWeight": 80
     }
 }
