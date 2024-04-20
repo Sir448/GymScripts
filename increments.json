@@ -105,8 +105,8 @@
     "Lat Pulldown": {
         "increment": 10,
         "maxReps": 10,
-        "currentReps": 24,
-        "currentWeight": 110
+        "currentReps": 8,
+        "currentWeight": 70
     },
     "Seated Calf Raises": {
         "increment": 5,
