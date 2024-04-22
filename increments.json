@@ -87,8 +87,8 @@
     "Incline Dumbbell Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 50
+        "currentReps": 8,
+        "currentWeight": 55
     },
     "Tricep Extensions": {
         "increment": 5,
@@ -137,7 +137,7 @@
         "increment": 5,
         "maxReps": 10,
         "currentReps": 8,
-        "currentWeight": 50
+        "currentWeight": 55
     },
     "Chest Press": {
         "increment": 5,
