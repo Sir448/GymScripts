@@ -3,3 +3,4 @@
 *test*
 
 !increments.json
+**/__pycache__
