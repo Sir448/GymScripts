@@ -9,13 +9,13 @@ months = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","
 from createCells import createBorderedCell, createCell
 from increment import increment
 
-# The ID and range of a sample spreadsheet.
-SPREADSHEET_ID = '1_DNoLWQX8jXvogVROqdu6oQSneYQy5HdavRBskHO_Os' #gym spreadsheet 2
-# SPREADSHEET_ID = '1x2dVAd5YS8ifgIN9eV_kXcwRX7eXNQ1OfFiDmq5v6dg' #gym spreadsheet 1
-# SPREADSHEET_ID = '13FkI3lmfiWU0oQt6uvEyXLAIw6s3RiWroA7fQOt98qI' #copy of gym spreadsheet
+import json
 
-# For starting new spreadsheet
-OFFSET = 50
+# The ID and and offset to start new sheet
+with open("sheet.json") as f:
+    data = json.load(f)
+    SPREADSHEET_ID = data['sheetId']
+    OFFSET = data ['offset']
 
 def createNewSheet(creds):
     try:

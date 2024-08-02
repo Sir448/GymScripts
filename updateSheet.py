@@ -6,10 +6,11 @@ from googleapiclient.errors import HttpError
 from createCells import createBorderedCell
 from increment import increment
 
+import json
+
 # The ID and range of a sample spreadsheet.
-SPREADSHEET_ID = '1_DNoLWQX8jXvogVROqdu6oQSneYQy5HdavRBskHO_Os' #gym spreadsheet 2
-# SPREADSHEET_ID = '1x2dVAd5YS8ifgIN9eV_kXcwRX7eXNQ1OfFiDmq5v6dg' #gym spreadsheet 1
-# SPREADSHEET_ID = '13FkI3lmfiWU0oQt6uvEyXLAIw6s3RiWroA7fQOt98qI' #copy of gym spreadsheet
+with open("sheet.json") as f:
+    SPREADSHEET_ID = json.load(f)['sheetId']
 
 def updateSheet(creds):
 

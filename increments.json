@@ -118,8 +118,8 @@
     "Seated Hamstring Curls": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 105
+        "currentReps": 8,
+        "currentWeight": 110
     },
     "Wrist Curls": {
         "increment": 2.5,
@@ -143,12 +143,12 @@
         "increment": 5,
         "maxReps": 10,
         "currentReps": 8,
-        "currentWeight": 155
+        "currentWeight": 170
     },
     "Shoulder Press": {
         "increment": 5,
         "maxReps": 10,
-        "currentReps": 12,
-        "currentWeight": 80
+        "currentReps": 8,
+        "currentWeight": 85
     }
 }
